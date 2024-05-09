@@ -126,12 +126,12 @@ vector<int> parcelGenerator() {
 }
 
 void game() {
-    int days = 1;
+    int days = 0;
     int score = 0;
     bool gameLoop = true;
 
 
-    vector<int> belt = parcelGenerator();
+
     system("cls");
     int truckNumber = newTruck() - 1;
     truck();
@@ -141,6 +141,8 @@ void game() {
     int waitingArea = 0;
     int heaviestTruck = 0;
     while (days < 30) {
+        days++;
+        vector<int> belt = parcelGenerator();
         while (!belt.empty()) {
             system("cls");
             cout << "DAY: " << days << endl;
@@ -239,9 +241,10 @@ void game() {
         truck();
         cout << "Good job! You loaded: " << truckNumber << " trucks!" << endl;
         cout << "The heaviest truck of " << days << " day: " << heaviestTruck << "KG!" << endl;
+        //Score in progress (score = ??)
+        cout << "Score of the" << days << " day: " << endl;
+        system("pause");
     }
-    days++;
-
 }
 
 void printMenu() {
